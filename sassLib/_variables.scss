@@ -1,0 +1,93 @@
+// variables
+
+// colors
+$primary: #326dee !default;
+$secondary: #1ac886 !default;
+$tertiary: #f2f2 !default;
+$forth: #f2f2 !default;
+$fifth: #f2f2 !default;
+$sixth: #f2f2 !default;
+$text: #f2f2 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
+$white: white !default;
+$black: black !default;
+
+// color palete
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "forth": $forth,
+  "fifth": $fifth,
+  "sixth": $sixth,
+  "text": $text,
+  "error": $error,
+  "info": $info,
+  "black": $black,
+  "white": $white,
+);
+@debug map-get($colors, "primary");
+@debug map-has-key($colors, "tertiary");
+@debug map-remove($colors, "tertiary");
+
+// sizes
+
+// fonts
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;
+
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
+
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// border-radii
+$base-border-radius: 10px !default;
+$border-radius-sm: $base-border-radius * 2 !default;
+$border-radius-lg: $base-border-radius * 3 !default;
+$border-radius-xl: $base-border-radius * 4 !default;
+$border-radius-round: 50% !default;
+
+// mixins
+// display
+@mixin position($align: center, $justify: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// hover Effects
+@mixin hover-1($color: white, $size: 5px) {
+  cursor: pointer;
+  &::after {
+    content: "";
+    display: block;
+    background-color: $color;
+    height: $size;
+    width: 0;
+  }
+  &:hover::after {
+    width: 100%;
+    transition: 0.5s;
+  }
+}
+@mixin hover-2($color: white, $size: 5px) {
+  cursor: pointer;
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    background-color: $color;
+    height: $size;
+    width: 0;
+  }
+  &:hover::after,
+  &:hover::before {
+    width: 100%;
+    transition: 0.5s;
+  }
+}

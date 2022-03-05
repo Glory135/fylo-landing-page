@@ -1,0 +1,25 @@
+@each $k, $v in $colors {
+  .text-#{$k} {
+    color: $v;
+  }
+  .bg-#{$k} {
+    background-color: $v;
+  }
+  // light variations
+  @if ($v != black and $v != white) {
+    @for $i from 1 through 9 {
+      .text-#{$k}-light-#{$i} {
+        color: mix(white, $v, $i * 10);
+      }
+      .bg-#{$k}-light-#{$i} {
+        background-color: mix(white, $v, $i * 10);
+      }
+      .text-#{$k}-dark-#{$i} {
+        color: mix(black, $v, $i * 10);
+      }
+      .bg-#{$k}-dark-#{$i} {
+        background-color: mix(black, $v, $i * 10);
+      }
+    }
+  }
+}

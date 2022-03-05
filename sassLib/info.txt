@@ -1,0 +1,5 @@
+normal
+npm init
+npm i scss gulp-sass gulp gulp-purgecss --save-dev
+
+react

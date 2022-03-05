@@ -1,0 +1,37 @@
+@mixin btn($bg, $color: #e2e2e2) {
+  text-decoration: none;
+  color: $color;
+  display: inline-block;
+  cursor: pointer;
+  padding: $base-padding;
+  border-radius: $base-border-radius;
+  background-color: $bg;
+}
+
+@each $k, $v in $colors {
+  .btn-#{$k} {
+    @include btn($v, white);
+    border: 0;
+    &:hover {
+      background-color: lighten($v, 20);
+      transition: 0.5s;
+    }
+  }
+  .btn-#{$k}-outlined {
+    @include btn(white, $v);
+    border: 1px solid $v;
+    &:hover {
+      background-color: $v;
+      transition: 0.5s;
+      color: white;
+    }
+  }
+  .btn-#{$k}-complement {
+    @include btn($v, light-comp($v));
+
+    &:hover {
+      color: $v;
+      background-color: light-comp($v);
+    }
+  }
+}
